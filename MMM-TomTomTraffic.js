@@ -1,17 +1,9 @@
 Module.register("MMM-TomTomTraffic", {
-  defaults: {
-    apiToken: "",
-    stops: []
-  },
+  defaults: {},
 
   requiresVersion: "2.1.0", // Required version of MagicMirror
 
   loaded: false,
-
-  start: function() {
-    // this.updateDom();
-    // setInterval( () => this.updateDom(), 5000 );
-  },
 
   getDom: function() {
     // We must load the leaflet js _after_ the css, so we cannot rely on getScripts.
@@ -23,9 +15,9 @@ Module.register("MMM-TomTomTraffic", {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.onload = () => {
-        console.log("leaflet.js loaded")
+        console.debug("leaflet.js loaded");
         this.updateDom();
-      }
+      };
 
       script.src = "https://unpkg.com/leaflet@1.5.1/dist/leaflet.js";
       document.querySelector("head").appendChild(script);
@@ -40,17 +32,18 @@ Module.register("MMM-TomTomTraffic", {
 
     map.setView(this.config.location, this.config.zoomLevel);
 
-    // TODO make style configurable / default to mapbox dark
-    L.tileLayer('https://api.mapbox.com/styles/v1/bendardenne/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-      maxZoom: 18,
-      id: 'cjzx2kfzp0bpg1codwkco1tdk',
-      accessToken: this.config.mapbox.apiToken
-    }).addTo(map);
+    if (this.config.mapbox.apiToken) {
+      L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+        maxZoom: 18,
+        id: this.config.mapbox.mapId || "mapbox/dark-v10",
+        accessToken: this.config.mapbox.apiToken
+      }).addTo(map);
+    }
 
-    const tomtomLayer = L.tileLayer('https://api.tomtom.com/traffic/map/4/tile/flow/{style}/{z}/{x}/{y}.png?key={accessToken}&thickness={thickness}', {
+    const tomtomLayer = L.tileLayer("https://api.tomtom.com/traffic/map/4/tile/flow/{style}/{z}/{x}/{y}.png?key={accessToken}&thickness={thickness}", {
       maxZoom: 22,
-      style: 'relative',
-      thickness: this.config.tomtom.thickness,
+      style: "relative",
+      thickness: this.config.tomtom.thickness || 5,
       accessToken: this.config.tomtom.apiToken,
       opacity: 0.80
     });
@@ -95,10 +88,6 @@ Module.register("MMM-TomTomTraffic", {
       childList: true,
       subtree: true
     });
-
-
-
-    // ct.forceWidth(true);
 
     return container;
   },

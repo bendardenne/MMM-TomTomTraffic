@@ -6,7 +6,6 @@ This module shows a map with traffic density from TomTom's traffic API.
 
 ![Example screenshot](https://raw.githubusercontent.com/bendardenne/MMM-TomTomTraffic/master/img/screenshot.png)
 
-
 ## Using the module
 
 To use this module, add the following configuration block to the modules array in the `config/config.js` file:
@@ -25,7 +24,8 @@ var config = {
             thickness: 4,
           },
           mapbox: {
-            apiToken: "MAP API TOKEN"
+            apiToken: "MAPBOX API TOKEN",
+            mapId: "mapbox/dark-v10"
           }
         }
       }
@@ -33,12 +33,13 @@ var config = {
 }
 ```
 
-See below for details
-
 ## Configuration options
 
-Option            | Description
------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-`location`        | _Required_ Array of Lon, Lat of the center of the map.
-`zoomLevel`       | _Required_ Zoom level of the map.
-`tomtom.apiToken` | _Required_ Tom Tom API Token.
+Option             | Description
+------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------
+`location`         | _Required_ Array of Lon, Lat of the center of the map.
+`zoomLevel`        | _Required_ Zoom level of the map.
+`tomtom.apiToken`  | _Required_ Tom Tom API token.
+`tomtom.thickness` | _Optional_ Thickness factor for the traffic lines.
+`mapbox.apiToken`  | _Optional_ Mapbox API token. If not provided, no background data will be shown.
+`mapbox.mapId`     | _Optional_ Mapbox map id. This is of the form "user/styleId". Mapbox provides a couple of default styles. If not provided, we use MapBox Dark v10.

@@ -1,0 +1,11 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "font-family-name-quotes": "always-where-recommended",
+    "block-no-empty": false,
+    "rule-empty-line-before": ["always", {
+      "except": "inside-block"
+    }],
+    "comment-empty-line-before": null
+  }
+}
