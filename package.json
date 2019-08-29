@@ -1,0 +1,23 @@
+{
+  "name": "MMM-stib2",
+  "version": "1.0.0",
+  "description": "MagicMirror module showing STIB waiting times.",
+  "main": "MMM-stib2.js",
+  "author": "Benoît Dardenne",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bendardenne/MMM-stib2/"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-eslint": "latest",
+    "grunt-jsonlint": "latest",
+    "grunt-markdownlint": "^1.0.13",
+    "grunt-stylelint": "latest",
+    "grunt-yamllint": "latest",
+    "stylelint-config-standard": "latest",
+    "time-grunt": "latest",
+    "leaflet": "latest"
+  }
+}
