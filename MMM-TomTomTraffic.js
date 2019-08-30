@@ -27,6 +27,8 @@ Module.register("MMM-TomTomTraffic", {
     const container = document.createElement("div");
     const mapDiv = document.createElement("div");
     mapDiv.classList.add("map");
+    mapDiv.style.width = this.config.size + "px";
+    mapDiv.style.height = this.config.size + "px";
 
     const map = L.map(mapDiv);
 
@@ -54,14 +56,12 @@ Module.register("MMM-TomTomTraffic", {
     container.appendChild(mapDiv);
 
     const attribContainer = document.createElement("div");
-    const rotationContainer = document.createElement("div");
     const attribution = document.createElement("span");
-
     attribution.innerHTML = "© Mapbox, © OpenStreetMap";
+    attribution.classList.add("mapbox-attribution");
 
     attribContainer.classList.add("mapbox-attribution-container");
-    rotationContainer.classList.add("mapbox-rotation-container");
-    attribution.classList.add("mapbox-attribution");
+    attribContainer.style.left = (this.config.size / 2 + 4)  + "px" ;
 
     attribContainer.appendChild(attribution);
     container.appendChild(attribContainer);
@@ -70,8 +70,9 @@ Module.register("MMM-TomTomTraffic", {
     // in order for the map to behave correctly. This is brittle, but seems to do the trick.
     const observer = new MutationObserver(mutations => {
       map.invalidateSize(false);
+      attribContainer.style.height = attribution.getBoundingClientRect().height + "px";
       const ct = new CircleType(attribution);
-      ct.radius(280);
+      ct.radius(this.config.size / 2 + 4);
       ct.dir(-1);
       observer.disconnect();
 
@@ -79,7 +80,7 @@ Module.register("MMM-TomTomTraffic", {
       // The container is originally positioned at the bottom of the circle.
       // We rotate the container from the center of the main container (so that the rotation follows the border circle).
       // The center is at 50% of the attrib span along X, and -container.width/2 + 50% of the attrib span on the Y axis
-      attribContainer.style.transformOrigin = "50% calc(-" + container.getBoundingClientRect().width / 2 + "px + 50%)";
+      attribContainer.style.transformOrigin = "-50% calc(-" + ( 4 + container.getBoundingClientRect().width / 2)  + "px + 100%)";
       attribContainer.style.transform = "rotate(-45deg)";
     });
 

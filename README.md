@@ -16,6 +16,7 @@ var config = {
       {
         module: "MMM-TomTomTraffic",
         position: "bottom_left",
+        size: "500px";
         config: {
           location: [50.8320000, 4.3818633],
           zoomLevel: 14,
@@ -42,4 +43,9 @@ Option             | Description
 `tomtom.apiToken`  | _Required_ Tom Tom API token.
 `tomtom.thickness` | _Optional_ Thickness factor for the traffic lines.
 `mapbox.apiToken`  | _Optional_ Mapbox API token. If not provided, no background data will be shown.
-`mapbox.mapId`     | _Optional_ Mapbox map id. This is of the form "user/styleId". Mapbox provides a couple of default styles. If not provided, we use MapBox Dark v10.
+`mapbox.mapId`     | _Optional_ Mapbox map id. This is of the form "user/styleId". Mapbox provides a couple of default styles. You can also make your own style in MapBox studio. By default, we use MapBox Dark v10.
+
+
+## TODO list / Ideas
+
+* Make the size configurable.
