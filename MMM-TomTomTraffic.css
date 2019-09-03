@@ -1,16 +1,32 @@
 .map {
   opacity: 50%;
   border-radius: 50%;
-  border: 4px solid #bbb;
+  -webkit-box-reflect: below 2px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(88%, transparent), to(rgba(255, 255, 255, 0.4)));
 }
+
 
 .mapbox-attribution-container {
   position: absolute;
-  z-index: 99999; /* Debugging purposes, make sure it stays on top of the map*/
   line-height: 0;
 }
 
 .mapbox-attribution {
   line-height: 0;
   font-size: 40%;
+}
+
+.map::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 10px 2px #555;
+  z-index: 999999;
+}
+
+.leaflet-container {
+  background-color: rgba(0, 0, 0, 1) !important;
 }

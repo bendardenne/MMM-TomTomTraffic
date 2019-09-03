@@ -30,7 +30,9 @@ Module.register("MMM-TomTomTraffic", {
     mapDiv.style.width = this.config.size + "px";
     mapDiv.style.height = this.config.size + "px";
 
-    const map = L.map(mapDiv);
+    const map = L.map(mapDiv, {
+      zoomControl: false
+    });
 
     map.setView(this.config.location, this.config.zoomLevel);
 
@@ -61,7 +63,7 @@ Module.register("MMM-TomTomTraffic", {
     attribution.classList.add("mapbox-attribution");
 
     attribContainer.classList.add("mapbox-attribution-container");
-    attribContainer.style.left = (this.config.size / 2 + 4)  + "px" ;
+    attribContainer.style.left = (this.config.size / 2) + "px";
 
     attribContainer.appendChild(attribution);
     container.appendChild(attribContainer);
@@ -72,16 +74,15 @@ Module.register("MMM-TomTomTraffic", {
       map.invalidateSize(false);
       attribContainer.style.height = attribution.getBoundingClientRect().height + "px";
       const ct = new CircleType(attribution);
-      ct.radius(this.config.size / 2 + 4);
+      ct.radius(this.config.size / 2 + 10);
       ct.dir(-1);
       observer.disconnect();
 
       // This must be done after the CircleType so as to no mess up its transforms.
       // The container is originally positioned at the bottom of the circle.
       // We rotate the container from the center of the main container (so that the rotation follows the border circle).
-      // The center is at 50% of the attrib span along X, and -container.width/2 + 50% of the attrib span on the Y axis
-      attribContainer.style.transformOrigin = "-50% calc(-" + ( 4 + container.getBoundingClientRect().width / 2)  + "px + 100%)";
-      attribContainer.style.transform = "rotate(-45deg)";
+      attribContainer.style.transformOrigin = "0% calc(-" + (container.getBoundingClientRect().width / 2) + "px + 100%)";
+      attribContainer.style.transform = "translateY(-100%) rotate(-45deg)";
     });
 
     observer.observe(mapDiv, {
