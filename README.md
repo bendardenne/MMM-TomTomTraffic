@@ -39,9 +39,10 @@ var config = {
 Option             | Description
 ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------
 `location`         | _Required_ Array of Lon, Lat of the center of the map.
-`zoomLevel`        | _Required_ Zoom level of the map.
+`size`             | _Optional_ Size (in pixels) of the component. Default: 300
+`zoomLevel`        | _Optional_ Zoom level of the map. Default: 14
 `tomtom.apiToken`  | _Required_ Tom Tom API token.
-`tomtom.thickness` | _Optional_ Thickness factor for the traffic lines.
+`tomtom.thickness` | _Optional_ Thickness factor for the traffic lines. Default: 5
 `mapbox.apiToken`  | _Optional_ Mapbox API token. If not provided, no background data will be shown.
 `mapbox.mapId`     | _Optional_ Mapbox map id. This is of the form "user/styleId". Mapbox provides a couple of default styles. You can also make your own style in MapBox studio. By default, we use MapBox Light v10.
 
