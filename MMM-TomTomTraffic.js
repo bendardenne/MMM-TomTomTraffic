@@ -1,5 +1,8 @@
 Module.register("MMM-TomTomTraffic", {
-  defaults: {},
+  defaults: {
+    size: 300,
+    zoomLevel: 14
+  },
 
   requiresVersion: "2.1.0", // Required version of MagicMirror
 
@@ -33,6 +36,13 @@ Module.register("MMM-TomTomTraffic", {
     const map = L.map(mapDiv, {
       zoomControl: false
     });
+
+    if (!this.config.location || !Array.isArray(this.config.location) ||
+      this.config.location.length != 2) {
+        console.error("MMM-TomTomTraffic: Provide a map location in the module configuration");
+        container.innerHTML = "Provide a map location in the module configuration";
+        return container;
+    }
 
     map.setView(this.config.location, this.config.zoomLevel);
 

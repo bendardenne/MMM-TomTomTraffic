@@ -16,9 +16,9 @@ var config = {
       {
         module: "MMM-TomTomTraffic",
         position: "bottom_left",
-        size: "500px";
         config: {
           location: [50.8320000, 4.3818633],
+          size: 500,
           zoomLevel: 14,
           tomtom: {
             apiToken: "TOM TOM API TOKEN",
