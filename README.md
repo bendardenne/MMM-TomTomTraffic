@@ -44,3 +44,14 @@ Option             | Description
 `tomtom.thickness` | _Optional_ Thickness factor for the traffic lines.
 `mapbox.apiToken`  | _Optional_ Mapbox API token. If not provided, no background data will be shown.
 `mapbox.mapId`     | _Optional_ Mapbox map id. This is of the form "user/styleId". Mapbox provides a couple of default styles. You can also make your own style in MapBox studio. By default, we use MapBox Light v10.
+
+## API tokens
+
+### TomTom
+
+To obtain a TomTom API token, go to <https://developer.tomtom.com/> and create an account. Then create an app. Use the "Consumer API Key" in the configuration of the module.
+
+### MapBox
+
+This is optional. If you don't provide a MapBox API token, no background data will be loaded and only the traffic map from TomTom will be shown.
+To obtain a token, go to <https://account.mapbox.com> and create an account, then create a token.

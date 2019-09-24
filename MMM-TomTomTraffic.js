@@ -39,9 +39,9 @@ Module.register("MMM-TomTomTraffic", {
 
     if (!this.config.location || !Array.isArray(this.config.location) ||
       this.config.location.length != 2) {
-        console.error("MMM-TomTomTraffic: Provide a map location in the module configuration");
-        container.innerHTML = "Provide a map location in the module configuration";
-        return container;
+      console.error("MMM-TomTomTraffic: Provide a map location in the module configuration");
+      container.innerHTML = "Provide a map location in the module configuration";
+      return container;
     }
 
     map.setView(this.config.location, this.config.zoomLevel);

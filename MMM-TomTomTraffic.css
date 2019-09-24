@@ -4,7 +4,6 @@
   -webkit-box-reflect: below 2px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(88%, transparent), to(rgba(255, 255, 255, 0.4)));
 }
 
-
 .mapbox-attribution-container {
   position: absolute;
   line-height: 0;
@@ -23,7 +22,7 @@
   left: 0;
   right: 0;
   border-radius: 50%;
-  box-shadow: inset 0px 0px 10px 2px #555;
+  box-shadow: inset 0 0 10px 2px #555;
   z-index: 999999;
 }
 
