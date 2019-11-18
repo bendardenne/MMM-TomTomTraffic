@@ -46,7 +46,7 @@ Module.register("MMM-TomTomTraffic", {
 
     map.setView(this.config.location, this.config.zoomLevel);
 
-    if (this.config.mapbox.apiToken) {
+    if (this.config.mapbox && this.config.mapbox.apiToken) {
       L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         maxZoom: 18,
         id: this.config.mapbox.mapId || "mapbox/dark-v10",
