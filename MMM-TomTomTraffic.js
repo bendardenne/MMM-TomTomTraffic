@@ -59,7 +59,6 @@ Module.register("MMM-TomTomTraffic", {
       style: "relative",
       thickness: this.config.tomtom.thickness || 5,
       accessToken: this.config.tomtom.apiToken,
-      opacity: 0.80
     });
 
     // Refresh the traffic layer every 10 minutes.

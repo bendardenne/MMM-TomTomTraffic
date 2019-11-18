@@ -1,5 +1,4 @@
 .map {
-  opacity: 50%;
   border-radius: 50%;
   -webkit-box-reflect: below 2px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(88%, transparent), to(rgba(255, 255, 255, 0.4)));
 }
