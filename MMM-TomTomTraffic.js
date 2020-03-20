@@ -49,7 +49,7 @@ Module.register("MMM-TomTomTraffic", {
     if (this.config.mapbox && this.config.mapbox.apiToken) {
       L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
         maxZoom: 18,
-        id: this.config.mapbox.mapId || "mapbox/dark-v10",
+        id: this.config.mapbox.mapId || "bendardenne/ck7zw0fl90ptz1ikx97gvb6zb",
         accessToken: this.config.mapbox.apiToken
       }).addTo(map);
     }
